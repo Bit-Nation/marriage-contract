@@ -22,8 +22,24 @@ contract MarriageContract {
         agreement = _agreement;
     }
 
+    function getA() returns (address) {
+        return a;
+    }
+
+    function getB() returns (address) {
+        return b;
+    }
+
+    function getTill() returns (uint256){
+        return till;
+    }
+
+    function getAgreement() returns (string) {
+        return agreement;
+    }
+
     function married() constant returns (bool) {
-        return coupleConfirmations[a] && coupleConfirmations[b];
+        return coupleConfirmations[a] && coupleConfirmations[b] && till <= now;
     }
 
     function signContract() onlyCouple() {
