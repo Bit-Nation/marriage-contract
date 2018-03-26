@@ -5,7 +5,7 @@ contract MarriageContract {
     address a;
     address b;
     uint256 till;
-    string docHash;
+    string agreement;
 
     mapping(address => bool) coupleConfirmations;
     mapping(address => bool) witnesses;
@@ -15,11 +15,15 @@ contract MarriageContract {
         _;
     }
 
-    function MarriageContract(address _a, address _b, uint256 _till, string _docHash){
+    function MarriageContract(address _a, address _b, uint256 _till, string _agreement){
         a = _a;
         b = _b;
         till = _till;
-        docHash = _docHash;
+        agreement = _agreement;
+    }
+
+    function married() constant returns (bool) {
+        return coupleConfirmations[a] && coupleConfirmations[b];
     }
 
     function signContract() onlyCouple() {
