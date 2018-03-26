@@ -22,19 +22,19 @@ contract MarriageContract {
         agreement = _agreement;
     }
 
-    function getA() returns (address) {
+    function getA() constant returns (address) {
         return a;
     }
 
-    function getB() returns (address) {
+    function getB() constant returns (address) {
         return b;
     }
 
-    function getTill() returns (uint256){
+    function getTill() constant returns (uint256){
         return till;
     }
 
-    function getAgreement() returns (string) {
+    function getAgreement() constant returns (string) {
         return agreement;
     }
 
