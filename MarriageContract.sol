@@ -39,7 +39,7 @@ contract MarriageContract {
     }
 
     function married() constant returns (bool) {
-        return coupleConfirmations[a] && coupleConfirmations[b] && till <= now;
+        return coupleConfirmations[a] && coupleConfirmations[b] && till >= now;
     }
 
     function signContract() onlyCouple() {
@@ -55,3 +55,4 @@ contract MarriageContract {
     }
 
 }
+
